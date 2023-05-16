@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.3/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.min.js"></script>
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
@@ -51,4 +55,15 @@
 
 </header>
 
+<!-- home starts -->
+<section class="home" id="home">
 
+   <div class="content">
+      <img data-aos="fade-up" src="images/burger-baner.png" alt="">
+      <h3 data-aos="fade-up">Hamburguesa de la buena</h3>
+      <p data-aos="fade-up">just eat it i beg you </p>
+      <a data-aos="fade-up" href="#menu" class="btn">Menu</a>
+   </div>
+
+</section>
+<!-- home ends -->

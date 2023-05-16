@@ -1,129 +1,75 @@
 <?php include 'include/header.php'; ?>
 
-<section class="home" id="home">
-
-   <div class="content">
-      <img data-aos="fade-up" src="images/burger-baner.png" alt="">
-      <h3 data-aos="fade-up">Hamburguesas de las buenas</h3>
-      <p data-aos="fade-up">descripcion va aqui</p>
-      <a data-aos="fade-up" href="#menu" class="btn">our menu</a>
-   </div>
-
-</section>
 
 
-<!-- menu section starts  -->
 
-<section class="menu" id="menu">
+<!-- modal part starts  -->
 
-   <div class="heading">
-      <img src="images/title-img.png" alt="">
-      <h3>our menu</h3>
-   </div>
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" >
+                <div class="modal-content p-4">
+                    <div class="modal-header border-0 mb-2">
+                        <h5 class="modal-title" id="loginModalLabel"><i class="fas fa-user"></i> Welcome</h5>
+                        <button type="button" class="close" aria-label="Close" disabled='true'></button>
+                    </div>
+                    <div class="modal-body">
+                    <h3 class="mb-4 title">Ingresa sus datos</h3>
+                    <form action="validar.php" method="post" class="was-validated" id="formulario">
+                    <div class="mb-3">
+                        <label for="email"><i class="fas fa-envelope"></i> Correo</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                        <div id="email-feedback" class="invalid-feedback"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password"><i class="fas fa-key"></i> Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <div id="password-feedback" class="invalid-feedback"></div>
+                    </div>
 
-   <div class="box-container">
+                        <label class="tc">By signing up I accept the <strong>Terms & Conditions</strong> of
+                            Hamburguesa</label>
 
-      <div class="box" data-aos="fade-up">
-         <img src="images/product-1.png" alt="">
-         <div class="content">
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="modal-footer border-0 mb-4">
+                        <button type="button" class="btn signin col-6 col-md-6" data-dismiss="modal">Acceder</button>
+                    </div>
+                </div>
             </div>
-            <h3>cheese hamburger</h3>
-            <div class="price">$29.99</div>
-            <a href="#" class="btn">add to cart</a>
-         </div>
-      </div>
+        </div>
 
-      <div class="box" data-aos="fade-up">
-         <img src="images/product-2.png" alt="">
-         <div class="content">
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>cheese hamburger</h3>
-            <div class="price">$29.99</div>
-            <a href="#" class="btn">add to cart</a>
-         </div>
-      </div>
 
-      <div class="box" data-aos="fade-up">
-         <img src="images/product-3.png" alt="">
-         <div class="content">
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>cheese hamburger</h3>
-            <div class="price">$29.99</div>
-            <a href="#" class="btn">add to cart</a>
-         </div>
-      </div>
 
-      <div class="box" data-aos="fade-up">
-         <img src="images/product-4.png" alt="">
-         <div class="content">
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>cheese hamburger</h3>
-            <div class="price">$29.99</div>
-            <a href="#" class="btn">add to cart</a>
-         </div>
-      </div>
+<script>
+    $(document).ready(function () {
+        $('#formulario').submit(function (e) {
+            e.preventDefault();
+            var correo = $('#email').val();
+            var pw = $('password').val();
+            if (correo != null && pw != null) {
+                var correoValido = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(correo);
+                if (correoValido) {
+                    $.ajax({
+                        url: 'validar.php',
+                        type: 'POST',
+                        data: $('formulario').serialize()
+                        success: function (response) {
+                        },
+                        error: function (xhr, status, error) {
+                        }
+                    });
+                }
 
-      <div class="box" data-aos="fade-up">
-         <img src="images/product-5.png" alt="">
-         <div class="content">
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>cheese hamburger</h3>
-            <div class="price">$29.99</div>
-            <a href="#" class="btn">add to cart</a>
-         </div>
-      </div>
+            }
+        });
+    });
+</script>
 
-      <div class="box" data-aos="fade-up">
-         <img src="images/product-6.png" alt="">
-         <div class="content">
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>cheese hamburger</h3>
-            <div class="price">$29.99</div>
-            <a href="#" class="btn">add to cart</a>
-         </div>
-      </div>
-      
-   </div>
+<!-- modal part ends  -->
 
-</section>
 
-<!-- menu section ends -->
+
+
 
 
 <!-- scripts funcionality starts -->
@@ -164,61 +110,6 @@ window.onscroll = () =>{
 
 
 
-<!-- modal part starts  -->
 
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel"><i class="fas fa-user"></i> LogIn</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="validar.php" method="post" class="was-validated" id="formulario">
-                    <div class="mb-3">
-                        <label for="email"><i class="fas fa-envelope"></i> Correo</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                        <div id="email-feedback" class="invalid-feedback"></div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password"><i class="fas fa-key"></i> Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                        <div id="password-feedback" class="invalid-feedback"></div>
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Entrar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    $(document).ready(function () {
-        $('#formulario').submit(function (e) {
-            e.preventDefault();
-            var correo = $('#email').val();
-            var pw = $('password').val();
-            if (correo != null && pw != null) {
-                var correoValido = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(correo);
-                if (correoValido) {
-                    $.ajax({
-                        url: 'validar.php',
-                        type: 'POST',
-                        data: $('formulario').serialize()
-                        success: function (response) {
-                        },
-                        error: function (xhr, status, error) {
-                        }
-                    });
-                }
-
-            }
-        });
-    });
-</script>
-
-<!-- modal part ends  -->
 
 <?php include 'include/footer.php'; ?>
