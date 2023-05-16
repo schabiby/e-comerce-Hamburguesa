@@ -16,10 +16,8 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if (mysqli_num_rows($resultado) == 1) {
         //Toca verificar si la contraseña coincide en ambos casos
         if ($pwd === $encryptedpassword) {
-            if ($rol == "empleado") {
-                //Busco el nombre del empleado que se logeo solo para mostrarlo en la pantalla de Libros
-                $user = mysqli_query($db, "SELECT Nombres from empleados where email = '$email'");
-                if (mysqli_num_rows($user) == 1) {
+            $user = mysqli_query($db, "SELECT Nombres from *** where email = '$email'");
+            if (mysqli_num_rows($user) == 1) {
                     //Si lo encuentra, que lo saque y lo ponga como variable de sesión
                     $fila2 = mysqli_fetch_assoc($user);
                     $Nombres = $fila2["Nombres"];
@@ -27,16 +25,15 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     header('Location: ###.php');
                 }
             } else {
-                //Busco el nombre del empleado que se logeo solo para mostrarlo en la pantalla 
-                $user = mysqli_query($db, "SELECT Nombres from empleados where email = '$email'");
-                if (mysqli_num_rows($user) == 1) {
-                    $fila2 = mysqli_fetch_assoc($user);
-                    $Nombres = $fila2["Nombres"];
-                    $_SESSION["NombreLogedIn"] = $Nombres;
-                    $_SESSION['ROL'] = $rol;
-                    header('Location: pajAdmin.php');
-                }
+                ?>
+                <script>
+                    alert('Usuario o contraseña invalidos');
+                    window.location.href = 'index.php';
+                    die();
+                </script>
+                <?php
             }
+            //Si no encuentra al usuario, regresa al login
         } else {
             ?>
             <script>
@@ -46,15 +43,5 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             </script>
             <?php
         }
-        //Si no encuentra al usuario, regresa al login
-    } else {
-        ?>
-        <script>
-            alert('Usuario o contraseña invalidos');
-            window.location.href = 'index.php';
-            die();
-        </script>
-        <?php
     }
-}
-?>
+    ?>
