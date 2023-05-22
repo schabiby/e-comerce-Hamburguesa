@@ -4,11 +4,9 @@
 
 
 
-   <p class="credit"> created by <span>Equipo 3</span> | all rights reserved! </p>
+   <p class="credit"> Created by <span>Equipo 3</span> | All rights reserved! </p>
 
 </footer>
-
-<script src="js/script.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 

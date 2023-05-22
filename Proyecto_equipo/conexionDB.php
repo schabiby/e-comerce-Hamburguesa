@@ -1,8 +1,9 @@
 <?php
+
 $servidor = "localhost";
 $usuarioBD = "root";
 $pwdBD = "";
-$nameDB = "#";
+$nameDB = "proyectofinal";
 
 $db = mysqli_connect($servidor, $usuarioBD, $pwdBD, $nameDB);
 if (!$db) {
@@ -10,4 +11,5 @@ if (!$db) {
 } else {
     mysqli_query($db, "SET NAMES 'UTF8'");
 }
+
 ?>
