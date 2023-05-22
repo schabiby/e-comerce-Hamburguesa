@@ -10,7 +10,7 @@
     <div class="content">
         <img data-aos="fade-up" src="images/burger-baner.png" alt="" style="width: 300px; height: auto">
         <h3 data-aos="fade-up">Hamburguesa de la buena</h3>
-        <p data-aos="fade-up">Just eat IT I beg you</p>
+        <p data-aos="fade-up">Just eat it, I beg you!</p>
         <p data-aos="fade-up">Bienvenido, por favor Registrate</p>
         <form action="alta.php" method="post">
             <button data-aos="fade-up" type="submit" class="btn btn-success" data-bs-toggle="modal" value="Sign Up"

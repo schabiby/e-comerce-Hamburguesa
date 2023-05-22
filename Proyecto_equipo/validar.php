@@ -1,6 +1,6 @@
 <?php
 
-/*Validación hecha por Arely Mejía Arreola*/
+
 
 session_start();
 require_once 'conexionDB.php';
